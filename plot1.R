@@ -1,0 +1,7 @@
+data1=read.table('household_power_consumption.txt',sep=';',header=TRUE,stringsAsFactors=FALSE)
+head(data1)
+data1$Date=as.Date(data1$Date,format='%d/%m/%Y')
+data2=rbind(data1[(data1$Date=='2007-02-01'),],data1[(data1$Date=='2007-02-02'),])
+head(data2)
+data2$Global_active_power=as.numeric(Global_active_power)
+hist(data2$Global_active_power,main = "Global Active Power",col='red',xlab='Global Active Power (kilowatts)')
